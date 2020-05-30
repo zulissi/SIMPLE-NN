@@ -217,9 +217,6 @@ extern "C" int calculate_sf(double** cell, double** cart, double** scale,
 
                     symf[ii][s] += G2(rRij, precal, params_d[s], dradtmp); // FIXME: index
 
-                    tmpd[0] = dradtmp*vecij[0];
-                    tmpd[1] = dradtmp*vecij[1];
-                    tmpd[2] = dradtmp*vecij[2];
                 }
                 else continue;
             }
