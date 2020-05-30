@@ -86,7 +86,7 @@ static inline double G2(const double Rij, const double* precal, const double* pa
     // par[2] = R_s
     double tmp = Rij-par[2];
     double expl = exp(-par[1]*tmp*tmp);
-    deriv = expl*(-2*par[1]*tmp*precal[0] + precal[1]);
+//     deriv = expl*(-2*par[1]*tmp*precal[0] + precal[1]);
     return expl*precal[0];
 }
 
@@ -100,15 +100,15 @@ static inline double G4(const double Rij, const double Rik, const double Rjk, co
     double cosv = 1 + par[3]*precal[7];
     double powcos = powint ? pow_int(fabs(cosv), par[2]-1) : pow(fabs(cosv), fabs(par[2]-1));
 
-    deriv[0] = expl*powcos*precal[2]*precal[4] * \
-               ((-2*par[1]*Rij*precal[0] + precal[1])*cosv + \
-               par[2]*par[3]*precal[0]*precal[8]); // ij
-    deriv[1] = expl*powcos*precal[0]*precal[4] * \
-               ((-2*par[1]*Rik*precal[2] + precal[3])*cosv + \
-               par[2]*par[3]*precal[2]*precal[9]); // ik
-    deriv[2] = expl*powcos*precal[0]*precal[2] * \
-               ((-2*par[1]*Rjk*precal[4] + precal[5])*cosv + \
-               par[2]*par[3]*precal[4]*precal[10]); // jk
+//     deriv[0] = expl*powcos*precal[2]*precal[4] * \
+//                ((-2*par[1]*Rij*precal[0] + precal[1])*cosv + \
+//                par[2]*par[3]*precal[0]*precal[8]); // ij
+//     deriv[1] = expl*powcos*precal[0]*precal[4] * \
+//                ((-2*par[1]*Rik*precal[2] + precal[3])*cosv + \
+//                par[2]*par[3]*precal[2]*precal[9]); // ik
+//     deriv[2] = expl*powcos*precal[0]*precal[2] * \
+//                ((-2*par[1]*Rjk*precal[4] + precal[5])*cosv + \
+//                par[2]*par[3]*precal[4]*precal[10]); // jk
 
     return powcos*cosv * expl * precal[0] * precal[2] * precal[4];
 }
@@ -123,14 +123,14 @@ static inline double G5(const double Rij, const double Rik, const double powtwo,
     double cosv = 1 + par[3]*precal[7];
     double powcos = powint ? pow_int(fabs(cosv), par[2]-1) : pow(fabs(cosv), fabs(par[2]-1));
 
-    deriv[0] = expl*powcos*precal[2] * \
-               ((-2*par[1]*Rij*precal[0] + precal[1])*cosv + \
-               par[2]*par[3]*precal[0]*precal[8]); // ij
-    deriv[1] = expl*powcos*precal[0] * \
-               ((-2*par[1]*Rik*precal[2] + precal[3])*cosv + \
-               par[2]*par[3]*precal[2]*precal[9]); // ik
-    deriv[2] = expl*powcos*precal[0]*precal[2] * \
-               par[2]*par[3]*precal[10]; // jk
+//     deriv[0] = expl*powcos*precal[2] * \
+//                ((-2*par[1]*Rij*precal[0] + precal[1])*cosv + \
+//                par[2]*par[3]*precal[0]*precal[8]); // ij
+//     deriv[1] = expl*powcos*precal[0] * \
+//                ((-2*par[1]*Rik*precal[2] + precal[3])*cosv + \
+//                par[2]*par[3]*precal[2]*precal[9]); // ik
+//     deriv[2] = expl*powcos*precal[0]*precal[2] * \
+//                par[2]*par[3]*precal[10]; // jk
 
     return powcos*cosv * expl * precal[0] * precal[2];
 }
