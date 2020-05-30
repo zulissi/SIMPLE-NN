@@ -196,17 +196,17 @@ extern "C" int calculate_sf(double** cell, double** cart, double** scale,
 
         for (int j=0; j < nneigh; ++j) {
             // calculate radial symmetry function
-            double* lcoeff = new double[9]();
+//             double* lcoeff = new double[9]();
             // coeffcient of each directional vector (order : ij, ik)
             rRij = nei_list_d[j*4 + 3];
 
-            vecij[0] = nei_list_d[j*4]/rRij;
-            vecij[1] = nei_list_d[j*4 + 1]/rRij;
-            vecij[2] = nei_list_d[j*4 + 2]/rRij;
+//             vecij[0] = nei_list_d[j*4]/rRij;
+//             vecij[1] = nei_list_d[j*4 + 1]/rRij;
+//             vecij[2] = nei_list_d[j*4 + 2]/rRij;
 
-            lcoeff[0] = nei_list_d[j*4]*inv[0][0] + nei_list_d[j*4 + 1]*inv[1][0] + nei_list_d[j*4 + 2]*inv[2][0];
-            lcoeff[1] = nei_list_d[j*4]*inv[0][1] + nei_list_d[j*4 + 1]*inv[1][1] + nei_list_d[j*4 + 2]*inv[2][1];
-            lcoeff[2] = nei_list_d[j*4]*inv[0][2] + nei_list_d[j*4 + 1]*inv[1][2] + nei_list_d[j*4 + 2]*inv[2][2];
+//             lcoeff[0] = nei_list_d[j*4]*inv[0][0] + nei_list_d[j*4 + 1]*inv[1][0] + nei_list_d[j*4 + 2]*inv[2][0];
+//             lcoeff[1] = nei_list_d[j*4]*inv[0][1] + nei_list_d[j*4 + 1]*inv[1][1] + nei_list_d[j*4 + 2]*inv[2][1];
+//             lcoeff[2] = nei_list_d[j*4]*inv[0][2] + nei_list_d[j*4 + 1]*inv[1][2] + nei_list_d[j*4 + 2]*inv[2][2];
 
             for (int s=0; s < nsyms; ++s) {
                 if (rRij > params_d[s][0]) continue;
@@ -237,17 +237,17 @@ extern "C" int calculate_sf(double** cell, double** cart, double** scale,
 
                 if (rRjk < 0.0001) continue;
 
-                vecjk[0] = deljk[0] / rRjk;
-                vecjk[1] = deljk[1] / rRjk;
-                vecjk[2] = deljk[2] / rRjk;
+//                 vecjk[0] = deljk[0] / rRjk;
+//                 vecjk[1] = deljk[1] / rRjk;
+//                 vecjk[2] = deljk[2] / rRjk;
 
-                lcoeff[3] = nei_list_d[k*4]*inv[0][0] + nei_list_d[k*4 + 1]*inv[1][0] + nei_list_d[k*4 + 2]*inv[2][0];
-                lcoeff[4] = nei_list_d[k*4]*inv[0][1] + nei_list_d[k*4 + 1]*inv[1][1] + nei_list_d[k*4 + 2]*inv[2][1];
-                lcoeff[5] = nei_list_d[k*4]*inv[0][2] + nei_list_d[k*4 + 1]*inv[1][2] + nei_list_d[k*4 + 2]*inv[2][2];
+//                 lcoeff[3] = nei_list_d[k*4]*inv[0][0] + nei_list_d[k*4 + 1]*inv[1][0] + nei_list_d[k*4 + 2]*inv[2][0];
+//                 lcoeff[4] = nei_list_d[k*4]*inv[0][1] + nei_list_d[k*4 + 1]*inv[1][1] + nei_list_d[k*4 + 2]*inv[2][1];
+//                 lcoeff[5] = nei_list_d[k*4]*inv[0][2] + nei_list_d[k*4 + 1]*inv[1][2] + nei_list_d[k*4 + 2]*inv[2][2];
 
-                lcoeff[6] = deljk[0]*inv[0][0] + deljk[1]*inv[1][0] + deljk[2]*inv[2][0];
-                lcoeff[7] = deljk[0]*inv[0][1] + deljk[1]*inv[1][1] + deljk[2]*inv[2][1];
-                lcoeff[8] = deljk[0]*inv[0][2] + deljk[1]*inv[1][2] + deljk[2]*inv[2][2];
+//                 lcoeff[6] = deljk[0]*inv[0][0] + deljk[1]*inv[1][0] + deljk[2]*inv[2][0];
+//                 lcoeff[7] = deljk[0]*inv[0][1] + deljk[1]*inv[1][1] + deljk[2]*inv[2][1];
+//                 lcoeff[8] = deljk[0]*inv[0][2] + deljk[1]*inv[1][2] + deljk[2]*inv[2][2];
 
                 precal[7]  = (rRij*rRij + rRik*rRik - rRjk*rRjk)/2/rRij/rRik;
                 precal[8]  = 0.5*(1/rRik + 1/rRij/rRij*(rRjk*rRjk/rRik - rRik));
